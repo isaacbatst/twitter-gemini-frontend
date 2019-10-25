@@ -1,0 +1,12 @@
+span {
+  overflow-wrap: break-word;
+  font-weight: 700;
+  font-size: 19px;
+}
+@media (max-width: 1200px) 
+{
+  span 
+   {
+    display: none;
+   }
+}
