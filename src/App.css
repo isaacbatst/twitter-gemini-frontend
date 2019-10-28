@@ -1,26 +1,3 @@
 :root {
   --theme-color: #1da1f2;
 }
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.container-fluid {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-
-
