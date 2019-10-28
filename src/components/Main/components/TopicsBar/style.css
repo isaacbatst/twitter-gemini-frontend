@@ -1,0 +1,9 @@
+@media (max-width: 992px){
+  .col{
+    display:none;
+  }
+}
+
+.col{
+  background: red;
+}

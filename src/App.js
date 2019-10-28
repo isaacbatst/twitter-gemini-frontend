@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Row>
+        <Row noGutters={true}>
           <Sidebar />
           <Main />
         </Row>
