@@ -6,12 +6,14 @@ import TweetingArea from "./components/TweetingArea/index";
 import GrayArea from './components/GrayArea/index';
 import Feed from './components/Feed/index';
 
+import './style.css';
+
 function Content() {
   return (
     <Col xs={12} lg={8}>
       <ContentHeader />
       <TweetingArea />
-      <GrayArea />
+      <GrayArea  />
       <Feed />
     </Col>
   );

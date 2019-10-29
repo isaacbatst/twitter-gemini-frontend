@@ -3,7 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import AvatarBar from "../AvatarBar/index";
-import TweetContent from "./components/TweetContent/index";
+import Tweet from "./components/Tweet/index";
+
+import Avatar from "../../../../../../static/avatar.png";
 
 import "./style.css";
 
@@ -34,14 +36,16 @@ function Feed() {
 
   return tweets.map(tweet => {
     return (
-      <Row noGutters={true} className="px-2" key={tweet.id}>
-        <Col xs={1}>
-          <AvatarBar />
-        </Col>
-        <Col xs={10}>
-          <TweetContent tweet={tweet} />
-        </Col>
-      </Row>
+      <div className="tweetDiv contentBlock" key={tweet.id}> 
+        <Row noGutters={true} className="tweetRow" >
+          <Col xs={1}>
+            <AvatarBar avatar={Avatar} />
+          </Col>
+          <Col xs={10}>
+            <Tweet tweet={tweet} />
+          </Col>
+        </Row>
+      </div>
     );
   });
 }

@@ -1,0 +1,12 @@
+.tweetingArea{
+  margin-top: 10px;
+}
+
+.tweetingArea .col-1{
+  margin-right: 5px;
+}
+
+.tweetingArea .col-10{
+  margin-left: 2px;
+  margin-bottom: 10px;
+}

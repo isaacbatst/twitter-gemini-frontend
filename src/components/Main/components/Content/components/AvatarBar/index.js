@@ -1,8 +1,10 @@
 import React from 'react';
-import Avatar from '../../../../../../static/avatar.png';
+import Image from 'react-bootstrap/Image';
 
-function AvatarBar(){
-  return <img width={45} src={Avatar} />
+import './style.css';
+
+function AvatarBar(props){
+  return <Image className='avatar' fluid={true} src={props.avatar} />
 }
 
 export default AvatarBar;
