@@ -4,9 +4,9 @@ import "./style.css";
 
 function TweetAuthorDetails(props) {
   return (
-    <div>
-      <span className="spanUsername">Username</span>
-      <span className="spanNickname">@nickname</span>
+    <div className="tweetAuthorDetailsDiv">
+      <span className="spanUsername">anon</span>
+      <span className="spanNickname">@anon</span>
       <span className="spanHifen">-</span>
       <span className="spanTimeAgo">a few moments ago</span>
     </div>

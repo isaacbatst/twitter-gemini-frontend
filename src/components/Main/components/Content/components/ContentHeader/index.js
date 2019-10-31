@@ -6,9 +6,9 @@ import "./style.css";
 
 function ContentHeader() {
   return (
-    <Navbar bg="dark" className="contentBlock contentHeader" >
+    <Navbar bg="light" className="contentBlock contentHeader" >
       <Navbar.Brand className="mr-auto contentHeaderText">Página inicial</Navbar.Brand>
-      <Star />
+      <Star htmlColor	='#1da1f2'/>
     </Navbar>
   );
 }

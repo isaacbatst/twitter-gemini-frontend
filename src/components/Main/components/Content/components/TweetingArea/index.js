@@ -6,13 +6,13 @@ import './style.css';
 
 import AvatarBar from '../AvatarBar/index';
 
-import Avatar from '../../../../../../static/avatar.png';
+import Avatar from '../../../../../../static/avatar.jpg';
 
 function TweetingArea(){
   return (
     <Row noGutters={true} className="contentBlock tweetingArea">
       <Col xs={1}><AvatarBar avatar={Avatar} /></Col>
-      <Col xs={10}>Tweet form<br/>form form</Col>
+      <Col xs={10}>O que está acontecendo?<br/>Tweetar</Col>
     </Row>
   )
 }
