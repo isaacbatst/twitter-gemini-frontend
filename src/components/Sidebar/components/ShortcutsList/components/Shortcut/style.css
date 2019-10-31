@@ -5,7 +5,7 @@ span {
 }
 @media (max-width: 1200px) 
 {
-  span 
+  .shortcutSpan 
    {
     display: none;
    }

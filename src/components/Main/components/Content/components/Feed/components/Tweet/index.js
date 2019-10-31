@@ -1,7 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
-import TweetAuthorDetails from './components/TweetAuthorDetails/index'
+import TweetAuthorDetails from './components/TweetAuthorDetails/index';
+import TweetActions from './components/TweetActions/index';
 
 import './style.css';
 
@@ -12,7 +13,7 @@ function TweetContent(props){
         <TweetAuthorDetails />
       </Row>
       <Row className="tweetContentRow">message</Row>
-      <Row className="tweetContentRow">actions</Row>
+      <TweetActions />
     </div>
   )
 }

@@ -1,9 +1,5 @@
 @media (max-width: 992px){
-  .col{
+  #topicsCol{
     display:none;
   }
-}
-
-.col{
-  background: red;
 }

@@ -1,0 +1,11 @@
+
+
+#tweetActionsRow .col svg{
+  font-size: 17px;
+}
+
+#tweetActionsRow button{
+  border: none;
+  background: white;
+  padding: .2rem .75rem;
+}
