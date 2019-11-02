@@ -11,17 +11,31 @@ import "./style.css";
 function TweetingForm() {
   const dispatch = useDispatch();
 
-  function handleTweetButton(event) {
-    event.preventDefault();
+  function stringNotEmpty(string) {
+    return string.match(/^\s+$/) === null;
+  }
+
+  function dispatchTweet(tweetMessage) {
     dispatch(
       addTweet({
         id: Math.random(),
-        message: "Novo",
+        message: tweetMessage,
         favorite: false
       })
     );
   }
 
+  function handleTweetButton(event) {
+    event.preventDefault();
+
+    const tweetInput = document.querySelector("#tweetInput");
+    const tweetMessage = tweetInput.value;
+
+    if (stringNotEmpty(tweetMessage)) {
+      tweetInput.value = "";
+      dispatchTweet(tweetMessage);
+    }
+  }
   return (
     <form>
       <input
