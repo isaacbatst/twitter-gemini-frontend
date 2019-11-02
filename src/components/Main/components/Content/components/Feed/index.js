@@ -22,7 +22,7 @@ function Feed() {
             <AvatarBar avatar={Avatar} />
           </Col>
           <Col xs={10}>
-            <Tweet tweet={tweet} favorite={tweet.favorite}/>
+            <Tweet tweet={tweet}/>
           </Col>
         </Row>
       </div>
