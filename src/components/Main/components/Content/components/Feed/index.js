@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from 'react-redux';
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -10,30 +12,8 @@ import Avatar from "../../../../../../static/avatar.jpg";
 import "./style.css";
 
 function Feed() {
-  const tweets = [
-    {
-      id: 1,
-      message: "Tweet tal",
-      favorite: true,
-      created_at: "",
-      updated_at: ""
-    },
-    {
-      id: 2,
-      message: "Tweet tal2",
-      favorite: true,
-      created_at: "",
-      updated_at: ""
-    },
-    {
-      id: 3,
-      message: "Tweet tal3",
-      favorite: true,
-      created_at: "",
-      updated_at: ""
-    }
-  ];
-
+  const tweets = useSelector(state => state.tweets.tweets);
+  
   return tweets.map(tweet => {
     return (
       <div className="tweetDiv contentBlock" key={tweet.id}> 
