@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  tweets: [{ id: 1, message: "Teste1" }, { id: 2, message: "Teste2" }]
+  tweets: [{ id: 1, message: "Teste1", favorite: true }, { id: 2, message: "Teste2", favorite: false }]
 };
 
 function tweets(state = INITIAL_STATE, action) {

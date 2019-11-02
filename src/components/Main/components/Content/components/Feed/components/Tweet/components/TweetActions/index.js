@@ -12,7 +12,7 @@ import Share from "@material-ui/icons/Share";
 
 import "./style.css";
 
-function TweetActions() {
+function TweetActions(props) {
   return (
     <Row noGutters id="tweetActionsRow">
       <Col>
@@ -27,7 +27,7 @@ function TweetActions() {
       </Col>
       <Col>
         <Button variant="light">
-          <Favorite />
+          {props.favorite ? <Favorite color='error'/> : <FavoriteBorder />}
         </Button>
       </Col>
       <Col>

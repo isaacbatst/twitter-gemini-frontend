@@ -13,7 +13,7 @@ function TweetContent(props){
         <TweetAuthorDetails />
       </Row>
       <Row className="tweetContentRow">message</Row>
-      <TweetActions />
+      <TweetActions favorite={props.favorite} />
     </div>
   )
 }

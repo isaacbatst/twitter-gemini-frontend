@@ -13,7 +13,7 @@ import "./style.css";
 
 function Feed() {
   const tweets = useSelector(state => state.tweets.tweets);
-  
+
   return tweets.map(tweet => {
     return (
       <div className="tweetDiv contentBlock" key={tweet.id}> 
@@ -22,7 +22,7 @@ function Feed() {
             <AvatarBar avatar={Avatar} />
           </Col>
           <Col xs={10}>
-            <Tweet tweet={tweet} />
+            <Tweet tweet={tweet} favorite={tweet.favorite}/>
           </Col>
         </Row>
       </div>
