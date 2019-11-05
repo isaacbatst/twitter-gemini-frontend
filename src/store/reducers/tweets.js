@@ -1,11 +1,15 @@
 const INITIAL_STATE = {
-  tweets: [{ id: 1, message: "Teste1", favorite: true }, { id: 2, message: "Teste2", favorite: false }]
+  tweets: []
 };
 
 function tweets(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "ADD_TWEET":
-      return { ...state, tweets: [action.payload.tweet, ...state.tweets] };
+      return { ...state, tweets: [action.payload.tweets, ...state.tweets] };
+    case "SUCCESS_LOAD_TWEETS": 
+      return { ...state, tweets: action.payload.tweets };
+    case "ERROR_LOAD_TWEETS":
+      return state;
     default: 
       return state;
   }
