@@ -1,6 +1,6 @@
-export function addTweet(tweet){
+export function requestAddTweet(tweet){
   return {
-    type: 'ADD_TWEET',
+    type: 'REQUEST_ADD_TWEET',
     payload: {
       tweet
     }
