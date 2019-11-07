@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 function tweets(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "ADD_TWEET":
-      return { ...state, tweets: [action.payload.tweets, ...state.tweets] };
+      return { ...state, tweets: [action.payload.tweet, ...state.tweets] };
     case "REQUEST_LOAD_TWEETS":
       return { ...state, loading: true };
     case "SUCCESS_LOAD_TWEETS":
