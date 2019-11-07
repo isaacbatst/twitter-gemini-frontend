@@ -14,3 +14,12 @@ export function requestAddTweet(tweetMessage){
     }
   }
 }
+
+export function requestUpdateTweet(tweet){
+  return {
+    type: 'REQUEST_UPDATE_TWEET',
+    payload: {
+      tweet
+    }
+  }
+}

@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { requestUpdateTweet } from '../../../../../../../../../../store/actions/tweets';
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,6 +16,16 @@ import Share from "@material-ui/icons/Share";
 import "./style.css";
 
 function TweetActions(props) {
+
+  const dispatch = useDispatch();
+
+  function handleFavoriteClick(){
+    dispatch(requestUpdateTweet({
+      ...props.tweet,
+      favorite: !props.tweet.favorite
+    }))
+  }
+
   return (
     <Row noGutters id="tweetActionsRow">
       <Col>
@@ -26,8 +39,8 @@ function TweetActions(props) {
         </Button>
       </Col>
       <Col>
-        <Button variant="light">
-          {props.favorite ? <Favorite color='error'/> : <FavoriteBorder />}
+        <Button variant="light" onClick={handleFavoriteClick}>
+          {props.tweet.favorite ? <Favorite color='error'/> : <FavoriteBorder />}
         </Button>
       </Col>
       <Col>

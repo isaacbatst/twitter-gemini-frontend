@@ -1,28 +1,44 @@
-import api from '../../services';
 import { put, call } from "@redux-saga/core/effects";
-import { createTweet, fetchTweets } from '../../services/tweets';
+import { createTweet, fetchTweets, updateTweet } from "../../services/tweets";
+
+export function* requestUpdateTweet(action) {
+  console.log(action);
+  try {
+    const response = yield call(updateTweet, action.payload.tweet);
+    console.log(response);
+    yield put({
+      type: "SUCCESS_UPDATE_TWEET",
+      payload: {
+        tweet: response.data
+      }
+    });
+  } catch (error) {
+    yield put({
+      type: 'FAILURE_UPDATE_TWEET'
+    })
+  }
+}
 
 export function* requestAddTweet(action) {
   try {
     const response = yield call(createTweet, {
       message: action.payload.tweetMessage,
       favorite: false
-    })
+    });
     yield put({
-      type: 'SUCCESS_ADD_TWEET',
+      type: "SUCCESS_ADD_TWEET",
       payload: {
         tweet: response.data
       }
-    })
-  } catch(error){
+    });
+  } catch (error) {
     yield put({
-      type: 'FAILURE_ADD_TWEET',
-    })
+      type: "FAILURE_ADD_TWEET"
+    });
   }
 }
 
 export function* requestLoadTweets() {
-
   try {
     const {
       data: { data: tweets }
@@ -37,8 +53,8 @@ export function* requestLoadTweets() {
     yield put({
       type: "FAILURE_LOAD_TWEETS",
       payload: {
-        tweets: [],
+        tweets: []
       }
-    })
+    });
   }
 }

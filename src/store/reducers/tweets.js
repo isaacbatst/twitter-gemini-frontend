@@ -28,6 +28,26 @@ function tweets(state = INITIAL_STATE, action) {
       };
     case "FAILURE_LOAD_TWEETS":
       return { ...state, loading: false, error: true };
+    case "REQUEST_UPDATE_TWEET":
+      return { ...state, loading: true, error: false };
+    case "SUCCESS_UPDATE_TWEET":
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        tweets: state.tweets.map(tweet => {
+          if (tweet.id === action.payload.tweet.id) {
+            return action.payload.tweet;
+          }
+          return tweet;
+        })
+      };
+    case "FAILURE_UPDATE_TWEET":
+      return {
+        ...state,
+        loading: false,
+        error: true
+      }
     default:
       return state;
   }
