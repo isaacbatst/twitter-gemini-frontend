@@ -1,24 +1,35 @@
-import axios from "axios";
+import api from '../../services';
 import { put, call } from "@redux-saga/core/effects";
+import { createTweet, fetchTweets } from '../../services/tweets';
 
 export function* requestAddTweet(action) {
-  yield put({
-    type: "ADD_TWEET",
-    payload: {
-      tweet: action.payload.tweet
-    }
-  });
+  try {
+    const response = yield call(createTweet, {
+      message: action.payload.tweetMessage,
+      favorite: false
+    })
+    yield put({
+      type: 'SUCCESS_ADD_TWEET',
+      payload: {
+        tweet: response.data
+      }
+    })
+  } catch(error){
+    yield put({
+      type: 'FAILURE_ADD_TWEET',
+    })
+  }
 }
 
 export function* requestLoadTweets() {
+
   try {
     const {
       data: { data: tweets }
-    } = yield call(axios.get, "http://127.0.0.1:3001/api/v1/Tweets");
+    } = yield call(fetchTweets);
     yield put({
       type: "SUCCESS_LOAD_TWEETS",
       payload: {
-        loading: false,
         tweets
       }
     });
@@ -27,7 +38,6 @@ export function* requestLoadTweets() {
       type: "FAILURE_LOAD_TWEETS",
       payload: {
         tweets: [],
-        loading: false
       }
     })
   }

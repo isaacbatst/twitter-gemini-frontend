@@ -6,11 +6,11 @@ export function requestLoadTweets(){
     }
   }
 }
-export function requestAddTweet(tweet){
+export function requestAddTweet(tweetMessage){
   return {
     type: 'REQUEST_ADD_TWEET',
     payload: {
-      tweet
+      tweetMessage
     }
   }
 }

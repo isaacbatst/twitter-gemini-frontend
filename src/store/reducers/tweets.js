@@ -6,12 +6,26 @@ const INITIAL_STATE = {
 
 function tweets(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "ADD_TWEET":
-      return { ...state, tweets: [action.payload.tweet, ...state.tweets] };
+    case "REQUEST_ADD_TWEET":
+      return { ...state, loading: true, error: false };
+    case "SUCCESS_ADD_TWEET":
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        tweets: [action.payload.tweet, ...state.tweets]
+      };
+    case "FAILURE_ADD_TWEET":
+      return { ...state, loading: false, error: true };
     case "REQUEST_LOAD_TWEETS":
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     case "SUCCESS_LOAD_TWEETS":
-      return { ...state, loading: false, tweets: action.payload.tweets };
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        tweets: action.payload.tweets
+      };
     case "FAILURE_LOAD_TWEETS":
       return { ...state, loading: false, error: true };
     default:

@@ -15,16 +15,6 @@ function TweetingForm() {
     return string.match(/^\s+$/) === null;
   }
 
-  function dispatchTweet(tweetMessage) {
-    dispatch(
-      requestAddTweet({
-        id: Math.random(),
-        message: tweetMessage,
-        favorite: false
-      })
-    );
-  }
-
   function handleTweetButton(event) {
     event.preventDefault();
 
@@ -33,7 +23,7 @@ function TweetingForm() {
 
     if (stringNotEmpty(tweetMessage)) {
       tweetInput.value = "";
-      dispatchTweet(tweetMessage);
+      dispatch(requestAddTweet(tweetMessage));
     }
   }
   return (
