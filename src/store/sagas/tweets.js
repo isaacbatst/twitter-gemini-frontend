@@ -2,10 +2,8 @@ import { put, call } from "@redux-saga/core/effects";
 import { createTweet, fetchTweets, updateTweet } from "../../services/tweets";
 
 export function* requestUpdateTweet(action) {
-  console.log(action);
   try {
     const response = yield call(updateTweet, action.payload.tweet);
-    console.log(response);
     yield put({
       type: "SUCCESS_UPDATE_TWEET",
       payload: {
@@ -14,8 +12,8 @@ export function* requestUpdateTweet(action) {
     });
   } catch (error) {
     yield put({
-      type: 'FAILURE_UPDATE_TWEET'
-    })
+      type: "FAILURE_UPDATE_TWEET"
+    });
   }
 }
 
