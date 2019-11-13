@@ -5,8 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 
-import AvatarBar from "../AvatarBar/index";
-import Tweet from "./components/Tweet/index";
+import AvatarBar from "../AvatarBar/";
+import Tweet from "./components/Tweet/";
 
 import { requestLoadTweets } from "../../../../../../store/actions/tweets";
 

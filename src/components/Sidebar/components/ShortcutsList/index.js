@@ -1,5 +1,5 @@
 import React from "react";
-import Shortcut from "./components/Shortcut/index";
+import Shortcut from "./components/Shortcut/";
 import "./style.css";
 
 import logoHome from "../../../../static/twitter_logo.png";

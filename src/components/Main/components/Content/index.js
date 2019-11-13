@@ -1,10 +1,10 @@
 import React from "react";
 import Col from "react-bootstrap/Col";
 
-import ContentHeader from "./components/ContentHeader/index";
-import TweetingArea from "./components/TweetingArea/index";
-import GrayArea from './components/GrayArea/index';
-import Feed from './components/Feed/index';
+import ContentHeader from "./components/ContentHeader/";
+import TweetingArea from "./components/TweetingArea/";
+import GrayArea from './components/GrayArea/';
+import Feed from './components/Feed/';
 
 import './style.css';
 

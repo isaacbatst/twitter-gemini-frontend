@@ -4,11 +4,11 @@ import "./App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import Main from "./components/Main/index";
-import Sidebar from "./components/Sidebar/index";
+import Main from "./components/Main/";
+import Sidebar from "./components/Sidebar/";
 
 import { Provider } from "react-redux";
-import store from "./store/index";
+import store from "./store/";
 
 function App() {
   return (

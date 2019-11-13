@@ -1,8 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
-import TweetAuthorDetails from './components/TweetAuthorDetails/index';
-import TweetActions from './components/TweetActions/index';
+import TweetAuthorDetails from './components/TweetAuthorDetails/';
+import TweetActions from './components/TweetActions/';
 
 import './style.css';
 
