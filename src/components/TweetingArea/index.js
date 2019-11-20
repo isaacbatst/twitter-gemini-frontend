@@ -6,7 +6,7 @@ import "./style.css";
 
 import AvatarBar from "../AvatarBar";
 import TweetingForm from "../TweetingForm";
-import Avatar from "../../../../../../static/avatar.jpg";
+import Avatar from "../../static/avatar.jpg";
 
 function TweetingArea() {
   return (

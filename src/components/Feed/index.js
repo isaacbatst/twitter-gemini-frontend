@@ -10,7 +10,7 @@ import Tweet from "../Tweet";
 
 import { requestLoadTweets } from "../../store/actions/tweets";
 
-import Avatar from "../../../../../../static/avatar.jpg";
+import Avatar from "../../static/avatar.jpg";
 import "./style.css";
 
 function Feed() {

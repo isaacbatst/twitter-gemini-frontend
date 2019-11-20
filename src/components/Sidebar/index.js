@@ -1,6 +1,6 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
-import ShortcutsList from './components/ShortcutsList';
+import ShortcutsList from '../ShortcutsList';
 import logo from '../../static/twitter_logo.png';
 import Image from 'react-bootstrap/Image';
 

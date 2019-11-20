@@ -2,10 +2,10 @@ import React from "react";
 import Shortcut from "./components/Shortcut";
 import "./style.css";
 
-import logoHome from "../../../../static/twitter_logo.png";
-import logoExplore from "../../../../static/twitter_logo.png";
-import logoNotifications from "../../../../static/twitter_logo.png";
-import logoMessages from "../../../../static/twitter_logo.png";
+import logoHome from "../../static/twitter_logo.png";
+import logoExplore from "../../static/twitter_logo.png";
+import logoNotifications from "../../static/twitter_logo.png";
+import logoMessages from "../../static/twitter_logo.png";
 
 function ShortcutsList() {
   const shortcuts = [

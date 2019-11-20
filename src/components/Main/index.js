@@ -2,8 +2,8 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import Content from './components/Content/';
-import TopicsBar from './components/TopicsBar/';
+import Content from '../Content/';
+import TopicsBar from '../TopicsBar/';
 
 import './style.css';
 
