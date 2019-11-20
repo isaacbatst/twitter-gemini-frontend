@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { requestUpdateTweet } from "../../../../../../../../../../store/actions/tweets";
+import { requestUpdateTweet } from "../../store/actions/tweets";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

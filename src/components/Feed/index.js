@@ -5,10 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 
-import AvatarBar from "../AvatarBar/";
-import Tweet from "./components/Tweet/";
+import AvatarBar from "../AvatarBar";
+import Tweet from "../Tweet";
 
-import { requestLoadTweets } from "../../../../../../store/actions/tweets";
+import { requestLoadTweets } from "../../store/actions/tweets";
 
 import Avatar from "../../../../../../static/avatar.jpg";
 import "./style.css";

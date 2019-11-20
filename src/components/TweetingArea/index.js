@@ -4,8 +4,8 @@ import Col from "react-bootstrap/Col";
 
 import "./style.css";
 
-import AvatarBar from "../AvatarBar/";
-import TweetingForm from "./components/TweetingForm/";
+import AvatarBar from "../AvatarBar";
+import TweetingForm from "../TweetingForm";
 import Avatar from "../../../../../../static/avatar.jpg";
 
 function TweetingArea() {

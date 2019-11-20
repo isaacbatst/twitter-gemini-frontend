@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { requestAddTweet } from "../../../../../../../../store/actions/tweets";
+import { requestAddTweet } from "../../store/actions/tweets";
 import { useDispatch } from "react-redux";
 
 import "./style.css";
