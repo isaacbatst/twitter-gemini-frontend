@@ -1,5 +1,4 @@
 import api from './';
-import { id } from 'postcss-selector-parser';
 
 export function createTweet(tweet){
   return api.post('Tweets', tweet)
