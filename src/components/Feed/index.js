@@ -4,24 +4,24 @@ import { useSelector, useDispatch } from "react-redux";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import AvatarBar from "../AvatarBar";
 import Tweet from "../Tweet";
-
 import { requestLoadTweets } from "../../store/actions/tweets";
 
 import Avatar from "../../static/avatar.jpg";
 import "./style.css";
 
 function Feed() {
+  const tweets = useSelector(state => state.tweets.tweets);
+  const loading = useSelector(state => state.tweets.loading);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(requestLoadTweets());
   }, []);
-
-  const tweets = useSelector(state => state.tweets.tweets);
-  const loading = useSelector(state => state.tweets.loading);
 
   if (loading) {
     return (
@@ -37,7 +37,7 @@ function Feed() {
           <Col xs={1} className="pt-2">
             <AvatarBar avatar={Avatar} />
           </Col>
-          <Col xs={10}>
+          <Col xs={11}>
             <Tweet tweet={tweet} />
           </Col>
         </Row>
