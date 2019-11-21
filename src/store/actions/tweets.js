@@ -23,3 +23,12 @@ export function requestUpdateTweet(tweet){
     }
   }
 }
+
+export function requestDeleteTweet(tweet){
+  return {
+    type: 'REQUEST_DELETE_TWEET',
+    payload: {
+      tweet
+    }
+  }
+}
