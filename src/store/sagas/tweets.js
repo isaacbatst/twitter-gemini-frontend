@@ -5,20 +5,23 @@ import {
   updateTweet,
   deleteTweet
 } from "../../services/tweets";
+import {
+  successUpdateTweet,
+  failureUpdateTweet,
+  successAddTweet,
+  failureAddTweet,
+  succesLoadTweets,
+  failureLoadTweets,
+  successDeleteTweet,
+  failureDeleteTweet
+} from "../actions/tweets";
 
 export function* requestUpdateTweet(action) {
   try {
     const response = yield call(updateTweet, action.payload.tweet);
-    yield put({
-      type: "SUCCESS_UPDATE_TWEET",
-      payload: {
-        tweet: response.data
-      }
-    });
+    yield put(successUpdateTweet(response.data));
   } catch (error) {
-    yield put({
-      type: "FAILURE_UPDATE_TWEET"
-    });
+    yield put(failureUpdateTweet());
   }
 }
 
@@ -28,16 +31,10 @@ export function* requestAddTweet(action) {
       message: action.payload.tweetMessage,
       favorite: false
     });
-    yield put({
-      type: "SUCCESS_ADD_TWEET",
-      payload: {
-        tweet: response.data
-      }
-    });
+
+    yield put(successAddTweet(response.data));
   } catch (error) {
-    yield put({
-      type: "FAILURE_ADD_TWEET"
-    });
+    yield put(failureAddTweet());
   }
 }
 
@@ -46,34 +43,17 @@ export function* requestLoadTweets() {
     const {
       data: { data: tweets }
     } = yield call(fetchTweets);
-    yield put({
-      type: "SUCCESS_LOAD_TWEETS",
-      payload: {
-        tweets
-      }
-    });
+    yield put(succesLoadTweets(tweets));
   } catch (error) {
-    yield put({
-      type: "FAILURE_LOAD_TWEETS",
-      payload: {
-        tweets: []
-      }
-    });
+    yield put(failureLoadTweets());
   }
 }
 
 export function* requestDeleteTweet(action) {
   try {
     yield deleteTweet(action.payload.tweetID);
-    yield put({
-      type: "SUCCESS_DELETE_TWEET",
-      payload: {
-        tweetID: action.payload.tweetID
-      }
-    });
+    yield put(successDeleteTweet(action.payload.tweetID));
   } catch (error) {
-    yield put({
-      type: "FAILURE_DELETE_TWEET",
-    });
+    yield put(failureDeleteTweet());
   }
 }
