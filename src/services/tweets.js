@@ -14,3 +14,7 @@ export function updateTweet(tweet){
     favorite: tweet.favorite
   })
 }
+
+export function deleteTweet(tweetID){
+  return api.delete(`Tweets/${tweetID}`);
+}

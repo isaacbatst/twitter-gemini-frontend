@@ -1,5 +1,10 @@
 import { put, call } from "@redux-saga/core/effects";
-import { createTweet, fetchTweets, updateTweet } from "../../services/tweets";
+import {
+  createTweet,
+  fetchTweets,
+  updateTweet,
+  deleteTweet
+} from "../../services/tweets";
 
 export function* requestUpdateTweet(action) {
   try {
@@ -53,6 +58,22 @@ export function* requestLoadTweets() {
       payload: {
         tweets: []
       }
+    });
+  }
+}
+
+export function* requestDeleteTweet(action) {
+  try {
+    yield deleteTweet(action.payload.tweetID);
+    yield put({
+      type: "SUCCESS_DELETE_TWEET",
+      payload: {
+        tweetID: action.payload.tweetID
+      }
+    });
+  } catch (error) {
+    yield put({
+      type: "FAILURE_DELETE_TWEET",
     });
   }
 }

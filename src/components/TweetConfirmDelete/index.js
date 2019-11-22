@@ -1,36 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-import { hideTweetConfirmDelete } from "../../store/actions/modals";
-import { requestDeleteTweet } from '../../store/actions/tweets'
+import { hideTweetConfirmDelete } from "../../store/actions/tweets";
+import { requestDeleteTweet } from "../../store/actions/tweets";
+import LoadingSpinner from "../LoadingSpinner";
 
-export default function(props) {
+export default function() {
   const dispatch = useDispatch();
 
-  const show = useSelector(state => state.modals.tweetConfirmDelete.show);
+  const showConfirmDeleteModal = useSelector(
+    state => state.tweets.showConfirmDeleteModal
+  );
+
+  const isDeleting = useSelector(state => state.tweets.isDeleting);
+
+  const deletingTweetID = useSelector(state => state.tweets.deletingTweetID);
 
   function handleClose(event) {
     dispatch(hideTweetConfirmDelete());
   }
 
-  function handleDelete(event){
-    dispatch(requestDeleteTweet(props.tweetID))
+  function handleDelete(event) {
+    dispatch(requestDeleteTweet(deletingTweetID));
   }
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={showConfirmDeleteModal} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Atenção</Modal.Title>
       </Modal.Header>
       <Modal.Body>Deseja realmente apagar esse tweet?</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" id="" onClick={handleClose}>
-          Close
+          Não
         </Button>
-        <Button variant="primary" onClick={handleDelete}>
-          Save Changes
+        <Button variant="danger" disabled={isDeleting} onClick={handleDelete}>
+          {isDeleting ? <LoadingSpinner /> : "Sim"}
         </Button>
       </Modal.Footer>
     </Modal>

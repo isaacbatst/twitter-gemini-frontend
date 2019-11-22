@@ -29,12 +29,12 @@ function TweetActions(props) {
   }
 
   const isUpdating = useSelector(state => state.tweets.isUpdating);
-  const updatingTweetId = useSelector(state => state.tweets.updatingTweetId);
+  const updatingTweetID = useSelector(state => state.tweets.updatingTweetID);
 
   const [thisTweetIsUpdating, setThisTweetIsUpdating] = useState(false);
 
   useEffect(() => {
-    if (props.tweet.id === updatingTweetId) {
+    if (props.tweet.id === updatingTweetID) {
       setThisTweetIsUpdating(true);
     } else {
       setThisTweetIsUpdating(false);

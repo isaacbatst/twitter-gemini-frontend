@@ -3,7 +3,10 @@ const INITIAL_STATE = {
   error: false,
   isFetching: false,
   isUpdating: false,
-  updatingTweetId: null
+  updatingTweetID: null,
+  isDeleting: false,
+  showConfirmDeleteModal: false,
+  deletingTweetID: null
 };
 
 function tweets(state = INITIAL_STATE, action) {
@@ -34,14 +37,14 @@ function tweets(state = INITIAL_STATE, action) {
       return {
         ...state,
         isUpdating: true,
-        updatingTweetId: action.payload.tweet.id,
+        updatingTweetID: action.payload.tweet.id,
         error: false
       };
     case "SUCCESS_UPDATE_TWEET":
       return {
         ...state,
         isUpdating: false,
-        updatingTweetId: null,
+        updatingTweetID: null,
         error: false,
         tweets: state.tweets.map(tweet => {
           if (tweet.id === action.payload.tweet.id) {
@@ -54,7 +57,39 @@ function tweets(state = INITIAL_STATE, action) {
       return {
         ...state,
         isUpdating: false,
-        updatingTweetId: null,
+        updatingTweetID: null,
+        error: true
+      };
+    case "SHOW_TWEET_CONFIRM_DELETE":
+      return {
+        ...state,
+        showConfirmDeleteModal: true,
+        deletingTweetID: action.payload.tweetID
+      };
+    case "HIDE_TWEET_CONFIRM_DELETE":
+      return {
+        ...state,
+        showConfirmDeleteModal: false,
+        deletingTweetID: null
+      };
+    case "REQUEST_DELETE_TWEET":
+      return {
+        ...state,
+        isDeleting: true,
+        showConfirmDeleteModal: false
+      };
+    case "SUCCESS_DELETE_TWEET":
+      return {
+        ...state,
+        isDeleting: false,
+        tweets: state.tweets.filter(
+          tweet => tweet.id !== action.payload.tweetID
+        )
+      };
+    case "FAILURE_DELETE_TWEET":
+      return {
+        ...state,
+        isDeleting: false,
         error: true
       };
     default:

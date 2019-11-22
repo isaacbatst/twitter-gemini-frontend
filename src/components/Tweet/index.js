@@ -8,19 +8,19 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import TweetAuthorDetails from "../TweetAuthorDetails";
 import TweetActions from "../TweetActions";
 
+import { showTweetConfirmDelete } from "../../store/actions/tweets";
+
 import "./style.css";
-import TweetConfirmDelete from "../TweetConfirmDelete";
-import { showTweetConfirmDelete } from "../../store/actions/modals";
 
 function TweetContent(props) {
   const dispatch = useDispatch();
 
-  function handleDeleteTweet(event) {
-    dispatch(showTweetConfirmDelete());
+  function handleDeleteTweet() {
+    dispatch(showTweetConfirmDelete(props.tweet.id));
   }
 
   return (
-    <div className="tweetContentDiv">
+    <div className="tweetContentDiv" idtweet={props.tweet.id}>
       <Row className="tweetContentRow" noGutters>
         <Col md={11}>
           <TweetAuthorDetails />
@@ -38,7 +38,6 @@ function TweetContent(props) {
       </Row>
       <Row className="tweetContentRow">{props.tweet.message}</Row>
       <TweetActions tweet={props.tweet} />
-      <TweetConfirmDelete idTweet={props.tweet.id} />
     </div>
   );
 }
