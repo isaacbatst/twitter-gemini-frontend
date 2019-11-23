@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   tweets: [],
   error: false,
+  isAddingTweet: true,
   isFetching: false,
   isUpdating: false,
   updatingTweetID: null,
@@ -12,16 +13,16 @@ const INITIAL_STATE = {
 function tweets(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "REQUEST_ADD_TWEET":
-      return { ...state, isFetching: true, error: false };
+      return { ...state, isAddingTweet: true, error: false };
     case "SUCCESS_ADD_TWEET":
       return {
         ...state,
-        isFetching: false,
+        isAddingTweet: false,
         error: false,
         tweets: [action.payload.tweet, ...state.tweets]
       };
     case "FAILURE_ADD_TWEET":
-      return { ...state, isFetching: false, error: true };
+      return { ...state, isAddingTweet: false, error: true };
     case "REQUEST_LOAD_TWEETS":
       return { ...state, isFetching: true, error: false };
     case "SUCCESS_LOAD_TWEETS":
