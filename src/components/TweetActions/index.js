@@ -54,7 +54,7 @@ function TweetActions(props) {
         </Button>
       </Col>
       <Col>
-        <Button variant="light" onClick={handleFavoriteClick}>
+        <Button variant="light" className="favorite-button" onClick={handleFavoriteClick}>
           {thisTweetIsUpdating ? (
             <Spinner animation="border" role="status"></Spinner>
           ) : props.tweet.favorite ? (

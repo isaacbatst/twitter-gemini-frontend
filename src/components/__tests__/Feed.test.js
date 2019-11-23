@@ -11,9 +11,8 @@ describe("Tests feed component", () => {
     ];
 
     const wrapper = shallow(<Feed tweets={tweets} loading={false} />)
-    console.log(wrapper.debug());
-
+    
     expect(wrapper.exists()).toBeTruthy();
     expect(wrapper.find("div.tweetDiv")).toHaveLength(tweets.length);  
-  })
+  });
 });

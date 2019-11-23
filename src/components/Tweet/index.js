@@ -36,7 +36,7 @@ function TweetContent(props) {
           </Dropdown>
         </Col>
       </Row>
-      <Row className="tweetContentRow">{props.tweet.message}</Row>
+      <Row className="tweetContentRow tweetMessageRow">{props.tweet.message}</Row>
       <TweetActions tweet={props.tweet} />
     </div>
   );
