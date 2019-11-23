@@ -9,3 +9,7 @@
 .tweetContentRow .btn-light{
   background:white;
 }
+
+.tweetMessageRow{
+  word-break: break-all;
+}
