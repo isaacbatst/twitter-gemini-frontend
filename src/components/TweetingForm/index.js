@@ -14,62 +14,57 @@ function TweetingForm() {
 
   const [inputValue, setInputValue] = useState("");
   const [submitShouldBeDisabled, setSubmitShouldBeDisabled] = useState(true);
-  
 
   useEffect(() => {
-    if(stringNotEmpty(inputValue)){
-      setSubmitShouldBeDisabled(false);
+    if(stringNotEmpty(inputValue) && isAddingTweet===false){
+      setSubmitShouldBeDisabled(false)
     } else {
       setSubmitShouldBeDisabled(true);
     }
-  }, [inputValue])
+  }, [isAddingTweet, inputValue]);
 
   useEffect(() => {
-    if(isAddingTweet === true){
-      setSubmitShouldBeDisabled(true);
-    } else {
-      const tweetInput = document.querySelector("#tweetInput");
-      tweetInput.value = "";
-      setSubmitShouldBeDisabled(false);
+    if(isAddingTweet===false){
+      setInputValue("");
+      document.querySelector('#tweetInput').value = '';
     }
   }, [isAddingTweet])
 
   function stringNotEmpty(string) {
-    return string.match(/^\s+$/) === null;
+    return string.length > 0;
   }
 
-  function handleTweetButton(event) {
+  function handleFormSubmit(event) {
     event.preventDefault();
 
     const tweetInput = document.querySelector("#tweetInput");
     const tweetMessage = tweetInput.value;
-
-    if (stringNotEmpty(tweetMessage)) {
-      dispatch(requestAddTweet(tweetMessage));
-    }
+    
+    dispatch(requestAddTweet(tweetMessage));
   }
 
-  function handleInputChange(event){
+  function handleInputChange(event) {
     setInputValue(event.target.value);
   }
 
   return (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <input
         className="w-100"
         type="text"
         id="tweetInput"
         placeholder="O que está acontecendo?"
+        defaultValue={inputValue}
         onChange={handleInputChange}
+        required
       />
       <Row className="w-100">
         <Col md={{ span: 3, offset: 10 }}>
           <Button
-            type="input"
+            type="submit"
             size="lg"
             id="tweetSubmit"
             disabled={submitShouldBeDisabled}
-            onClick={handleTweetButton}
           >
             Tweetar
           </Button>
