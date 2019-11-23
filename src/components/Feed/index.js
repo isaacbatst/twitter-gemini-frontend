@@ -16,16 +16,9 @@ import Avatar from "../../static/avatar.jpg";
 
 import "./style.css";
 
-function Feed() {
-  const tweets = useSelector(state => state.tweets.tweets);
-  const loading = useSelector(state => state.tweets.loading);
-  const dispatch = useDispatch();
+function Feed(props) {
 
-  useEffect(() => {
-    dispatch(requestLoadTweets());
-  }, []);
-
-  if (loading) {
+  if (props.loading) {
     return (
       <LoadingSpinner />
     );
@@ -33,7 +26,7 @@ function Feed() {
   return (
     <>
       <TweetConfirmDelete />
-      {tweets.map(tweet => (
+      {props.tweets.map(tweet => (
         <div className="tweetDiv contentBlock" key={tweet.id}>
           <Row noGutters={true} className="tweetRow">
             <Col xs={1} className="pt-2">
