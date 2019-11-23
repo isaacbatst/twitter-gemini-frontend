@@ -11,3 +11,7 @@
   border-right: 0.5px solid #dddddd;
   border-left: 0.5px solid #dddddd;
 }
+
+#no-tweets-paragraph{
+  font-size: 0.7em;
+}
