@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
 
 import AvatarBar from "../AvatarBar";
 import Tweet from "../Tweet";
 import TweetConfirmDelete from "../TweetConfirmDelete";
 import LoadingSpinner from '../LoadingSpinner';
-
-import { requestLoadTweets } from "../../store/actions/tweets";
 
 import Avatar from "../../static/avatar.jpg";
 

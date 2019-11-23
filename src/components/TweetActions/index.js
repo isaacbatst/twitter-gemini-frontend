@@ -19,15 +19,6 @@ import "./style.css";
 function TweetActions(props) {
   const dispatch = useDispatch();
 
-  function handleFavoriteClick() {
-    dispatch(
-      requestUpdateTweet({
-        ...props.tweet,
-        favorite: !props.tweet.favorite
-      })
-    );
-  }
-
   const isUpdating = useSelector(state => state.tweets.isUpdating);
   const updatingTweetID = useSelector(state => state.tweets.updatingTweetID);
 
@@ -40,6 +31,16 @@ function TweetActions(props) {
       setThisTweetIsUpdating(false);
     }
   }, [isUpdating]);
+
+
+  function handleFavoriteClick() {
+    dispatch(
+      requestUpdateTweet({
+        ...props.tweet,
+        favorite: !props.tweet.favorite
+      })
+    );
+  }
 
   return (
     <Row noGutters id="tweetActionsRow">
