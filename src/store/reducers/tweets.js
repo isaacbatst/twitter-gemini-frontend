@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   tweets: [],
   error: false,
-  isAddingTweet: false,
+  isAddingTweet: null,
   isFetching: false,
   isUpdating: false,
   updatingTweetID: null,
