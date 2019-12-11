@@ -26,8 +26,6 @@ describe("Tests tweet component", () => {
       </Provider>
     );
     
-    console.log(wrapper.debug())
-    
     expect(wrapper.exists()).toBeTruthy();
     expect(
       wrapper
