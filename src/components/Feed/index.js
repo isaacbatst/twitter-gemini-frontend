@@ -18,8 +18,7 @@ function Feed(props) {
     return <LoadingSpinner />;
   }
   return (
-    <>
-      {props.tweets.length > 0 ? (
+      props.tweets.length > 0 ? (
         <>
           <TweetConfirmDelete />
           {props.tweets.map(tweet => (
@@ -41,8 +40,7 @@ function Feed(props) {
             Você ainda não tem tweets
           </p>
         </Container>
-      )}
-    </>
+      )
   );
 }
 
