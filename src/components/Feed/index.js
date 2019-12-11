@@ -13,35 +13,35 @@ import Avatar from "../../static/avatar.jpg";
 
 import "./style.css";
 
-function Feed(props) {
-  if (props.loading) {
-    return <LoadingSpinner />;
-  }
+function Feed({loading, tweets}) {
   return (
-      props.tweets.length > 0 ? (
-        <>
-          <TweetConfirmDelete />
-          {props.tweets.map(tweet => (
-            <div className="tweetDiv contentBlock" key={tweet.id}>
-              <Row noGutters={true} className="tweetRow">
-                <Col xs={1} className="pt-2">
-                  <AvatarBar avatar={Avatar} />
-                </Col>
-                <Col xs={11}>
-                  <Tweet tweet={tweet} />
-                </Col>
-              </Row>
-            </div>
-          ))}
-        </>
-      ) : (
-        <Container className="mt-3">
-          <p className="text-center" id="no-tweets-paragraph">
-            Você ainda não tem tweets
-          </p>
-        </Container>
-      )
-  );
+    loading ?
+    <LoadingSpinner />
+    :
+    tweets.length > 0 ? (
+      <>
+        <TweetConfirmDelete />
+        {tweets.map(tweet => (
+          <div className="tweetDiv contentBlock" key={tweet.id}>
+            <Row noGutters={true} className="tweetRow">
+              <Col xs={1} className="pt-2">
+                <AvatarBar avatar={Avatar} />
+              </Col>
+              <Col xs={11}>
+                <Tweet tweet={tweet} />
+              </Col>
+            </Row>
+          </div>
+        ))}
+      </>
+    ) : (
+      <Container className="mt-3">
+        <p className="text-center" id="no-tweets-paragraph">
+          Você ainda não tem tweets
+        </p>
+      </Container>
+    )
+  )
 }
 
 export default Feed;
