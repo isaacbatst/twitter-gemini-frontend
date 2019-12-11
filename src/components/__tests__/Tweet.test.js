@@ -15,10 +15,10 @@ describe("Tests tweet component", () => {
         tweets: {
           tweets: [tweet],
           isUpdating: false,
-          updatingTweetID: null
         }
       })
    })
+   
   it("should render tweet with right props", () => {
     const wrapper = mount(
       <Provider store={store}>
