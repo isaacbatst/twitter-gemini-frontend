@@ -10,7 +10,7 @@ import {
   failureUpdateTweet,
   successAddTweet,
   failureAddTweet,
-  succesLoadTweets,
+  successLoadTweets,
   failureLoadTweets,
   successDeleteTweet,
   failureDeleteTweet
@@ -40,10 +40,13 @@ export function* requestAddTweet(action) {
 
 export function* requestLoadTweets() {
   try {
-    const {
-      data: { data: tweets }
-    } = yield call(fetchTweets);
-    yield put(succesLoadTweets(tweets));
+    const response = yield call(fetchTweets);
+
+    if (response) {
+      yield put(successLoadTweets(response.data.data));
+    } else {
+      throw new Error('API error');
+    }
   } catch (error) {
     yield put(failureLoadTweets());
   }

@@ -7,7 +7,7 @@ export function requestLoadTweets() {
   };
 }
 
-export function succesLoadTweets(tweets) {
+export function successLoadTweets(tweets) {
   return {
     type: "SUCCESS_LOAD_TWEETS",
     payload: {
