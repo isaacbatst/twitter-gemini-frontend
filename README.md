@@ -1,4 +1,4 @@
-#TWITER GEMINI
+## TWITER GEMINI
 This is a project that copies twitter interface with react
 
 ## Available Scripts
