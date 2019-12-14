@@ -26,7 +26,6 @@ function TweetingForm() {
   useEffect(() => {
     if(isAddingTweet===false){
       setInputValue("");
-      document.querySelector('#tweetInput').value = '';
     }
   }, [isAddingTweet])
 
@@ -54,7 +53,7 @@ function TweetingForm() {
         type="text"
         id="tweetInput"
         placeholder="O que está acontecendo?"
-        defaultValue={inputValue}
+        value={inputValue}
         onChange={handleInputChange}
         required
       />
