@@ -1,10 +1,11 @@
 import React from "react";
-import { mount } from "../../enzyme";
-
-import Feed from "../../components/Feed";
 import { Provider } from "react-redux";
 
+import { mount } from "../../enzyme";
 import configureStore from "redux-mock-store";
+import renderer from 'react-test-renderer';
+
+import Feed from "../../components/Feed";
 
 const mockStore = configureStore([]);
 
@@ -23,30 +24,36 @@ describe("Tests feed component", () => {
   });
 
   it("should render tweets list", () => {
-    const { tweets: { tweets } } = store.getState();
+    const { tweets: { tweets, isLoading } } = store.getState();
     
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <Provider store={store}>
         <Feed tweets={tweets} loading={false} />
       </Provider>
     );
 
-    expect(wrapper.exists()).toBeTruthy();
-    expect(wrapper.find("div.tweetDiv")).toHaveLength(tweets.length);
+    expect(wrapper.toJSON()).toMatchSnapshot();
   });
+  
   it("should render a 'no tweets' text", () => {
     const tweets = [];
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <Provider store={store}>
         <Feed tweets={tweets} loading={false} />
       </Provider>
     );
-
-    expect(wrapper.exists()).toBeTruthy();
-
-    const noTweetsDiv = wrapper.find("#no-tweets-paragraph");
-    expect(noTweetsDiv.text()).toEqual("Você ainda não tem tweets");
-    expect(noTweetsDiv).toHaveLength(1);
+    
+    expect(wrapper.toJSON()).toMatchSnapshot();
   });
+
+  it("should render a loading feed", () => {
+    const wrapper = renderer.create(
+      <Provider store={store}>
+        <Feed tweets={[]} loading={true} />
+      </Provider>
+    );
+
+    expect(wrapper.toJSON()).toMatchSnapshot();
+  })
 });
