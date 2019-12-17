@@ -1,8 +1,8 @@
 //movie-saga.test.js
 import { put, call } from "redux-saga/effects";
-import { fetchTweets } from "../../src/services/tweets";
-import { requestLoadTweets } from "../../src/store/sagas/tweets";
-import { successLoadTweets, failureLoadTweets } from "../../src/store/actions/tweets";
+import { fetchTweets } from "../../services/tweets";
+import { requestLoadTweets } from "../../store/sagas/tweets";
+import { successLoadTweets, failureLoadTweets } from "../../store/actions/tweets";
 
 describe("tweets fetching process", () => {
   it("Fetches the tweets successfully when server is online", () => {

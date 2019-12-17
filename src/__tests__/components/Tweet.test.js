@@ -1,7 +1,7 @@
 import React from "react";
-import { shallow, mount } from "../../src/enzyme";
+import { mount } from "../../enzyme";
 
-import Tweet from "../../src/components/Tweet";
+import Tweet from "../../components/Tweet";
 import { Provider } from "react-redux";
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([]);
@@ -21,7 +21,7 @@ describe("Tests tweet component", () => {
    
   it("should render tweet with right props", () => {
     const wrapper = mount(
-      <Provider store={1}>
+      <Provider store={store}>
         <Tweet tweet={tweet} />
       </Provider>
     );
