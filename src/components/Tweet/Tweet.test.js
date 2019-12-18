@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "../../enzyme";
 
-import Tweet from "../../components/Tweet";
+import Tweet from ".";
 import { Provider } from "react-redux";
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([]);

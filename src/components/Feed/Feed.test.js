@@ -1,11 +1,10 @@
 import React from "react";
 import { Provider } from "react-redux";
 
-import { mount } from "../../enzyme";
 import configureStore from "redux-mock-store";
 import renderer from 'react-test-renderer';
 
-import Feed from "../../components/Feed";
+import Feed from ".";
 
 const mockStore = configureStore([]);
 
@@ -24,7 +23,7 @@ describe("Tests feed component", () => {
   });
 
   it("should render tweets list", () => {
-    const { tweets: { tweets, isLoading } } = store.getState();
+    const { tweets: { tweets } } = store.getState();
     
     const wrapper = renderer.create(
       <Provider store={store}>
