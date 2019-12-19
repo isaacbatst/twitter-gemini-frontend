@@ -1,4 +1,3 @@
-//movie-saga.test.js
 import { put, call } from "redux-saga/effects";
 import { fetchTweets } from "../../services/tweets";
 import { requestLoadTweets } from "./tweets";

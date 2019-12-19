@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "../../enzyme";
+import { mount } from "enzyme";
 
 import Tweet from ".";
 import { Provider } from "react-redux";

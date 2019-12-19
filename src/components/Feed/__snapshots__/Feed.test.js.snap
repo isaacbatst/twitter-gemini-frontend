@@ -39,7 +39,7 @@ Array [
       >
         <img
           className="avatar img-fluid rounded-circle"
-          src="avatar.jpg"
+          src={Object {}}
         />
       </div>
       <div
@@ -215,7 +215,7 @@ Array [
       >
         <img
           className="avatar img-fluid rounded-circle"
-          src="avatar.jpg"
+          src={Object {}}
         />
       </div>
       <div
