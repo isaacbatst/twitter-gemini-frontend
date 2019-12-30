@@ -103,8 +103,14 @@ export function showTweetConfirmDelete(tweetID) {
   };
 }
 
-export function hideTweetConfirmDelete(){
+export function hideTweetConfirmDelete() {
   return {
     type: "HIDE_TWEET_CONFIRM_DELETE"
+  }
+}
+
+export function resetError() {
+  return {
+    type: "RESET_ERROR"
   }
 }

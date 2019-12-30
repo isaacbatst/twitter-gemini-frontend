@@ -93,6 +93,11 @@ function tweets(state = INITIAL_STATE, action) {
         isDeleting: false,
         error: true
       };
+    case "RESET_ERROR":
+      return {
+        ...state,
+        error: false
+      }
     default:
       return state;
   }
