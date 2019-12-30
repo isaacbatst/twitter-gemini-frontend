@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import Main from "./components/Main/";
@@ -14,12 +13,10 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Container>
-          <Row noGutters={true}>
-            <Sidebar />
-            <Main />
-          </Row>
-        </Container>
+        <Row noGutters={true} className="container" id="app-container-row">
+          <Sidebar />
+          <Main />
+        </Row>
       </div>
     </Provider>
   );
