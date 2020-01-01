@@ -35,11 +35,7 @@ function TweetingForm() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
-    const tweetInput = document.querySelector("#tweetInput");
-    const tweetMessage = tweetInput.value;
-    
-    dispatch(requestAddTweet(tweetMessage));
+    dispatch(requestAddTweet(inputValue));
   }
 
   function handleInputChange(event) {
